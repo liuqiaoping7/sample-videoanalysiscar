@@ -83,6 +83,15 @@ Before running the application, obtain the source code package and configure the
     **Figure  3**  Home page<a name="en-us_topic_0167343881_fig64391558352"></a>  
     ![](doc/source/img/home-page.png "home-page")
 
+    **Figure 4** Example IP Address <a name="en-us_topic_0167333823_fig64391558353"></a>  
+    ![](doc/source/img/connect.png "Example IP Address")
+
+    Among them:
+    - The IP address of the  Atlas 200 DK developer board is 192.168.1.2 (connected in USB mode).
+    - The IP address used by the Presenter Server to communicate with the Atlas 200 DK is in the same network segment as the IP address of the Atlas 200 DK on the UI Host server. For example: 192.168.1.223.
+    - The following is an example of accessing the IP address of the Presenter Server using a browser: 10.10.0.1, because the Presenter Server and MindSpore Studio are deployed on the same server, the IP address is also the IP address for accessing the MindSpre Studio through the browser.
+
+
 4.  The video structured application can parse local videos and RTSP video streams.
     -   To parse a local video, upload the video file to the Host.
 
