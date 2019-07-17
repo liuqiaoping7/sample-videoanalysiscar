@@ -41,7 +41,7 @@ Before running the application, obtain the source code package and configure the
 ## Deployment<a name="en-us_topic_0167343881_section254863302012"></a>
 
 1.  Access the root directory where the vehicle detection application code is located as the MindSpore Studio installation user, for example,  _**/home/ascend/sample-videoanalysiscar**_.
-2.  <a name="en-us_topic_0167343881_li08019112542"></a>Run the deployment script to prepare the project environment, including compiling and deploying the ascenddk public library, downloading the network model, and configuring Presenter Server.
+2.  <a name="en-us_topic_0167343881_li08019112542"></a>Run the deployment script to prepare the project environment, including compiling and deploying the ascenddk public library, downloading the network model, and configuring Presenter Server. The Presenter Server is used to receive the data sent by the application and display the result through the browser.
 
     **bash deploy.sh** _host\_ip_ _model\_mode_
 
@@ -57,7 +57,7 @@ Before running the application, obtain the source code package and configure the
     **bash deploy.sh 192.168.1.2 internet**
 
     -   When the message  **Please choose one to show the presenter in browser\(default: 127.0.0.1\):**  is displayed, enter the IP address used for accessing the Presenter Server service in the browser. Generally, the IP address is the IP address for accessing the MindSpore Studio service.
-    -   When the message  **Please input a absolute path to storage video analysis data:**  is displayed, enter the existing absolute path for storing video analysis data in MindSpore Studio. The MindSpore Studio user must have the read and write permissions.
+    -   When the message  **Please input a absolute path to storage video analysis data:**  is displayed, enter the absolute path for storing video analysis data in MindSpore Studio. The MindSpore Studio user must have the read and write permissions. If the path does not exit, the script is automatically created.
 
     Select the IP address used by the browser to access the Presenter Server service in  **Current environment valid ip list**  and enter the path for storing video analysis data, as shown in  [Figure 1](#en-us_topic_0167343881_fig184321447181017).
 
@@ -103,7 +103,7 @@ Before running the application, obtain the source code package and configure the
     **bash run\_videoanalysiscarapp.sh** _host\_ip_ _presenter\_view\_appname_ _channel1_ _\[channel2\]_  &
 
     -   _host\_ip_: For the Atlas 200 DK developer board, this parameter indicates the IP address of the developer board.For the AI acceleration cloud server, this parameter indicates the IP address of the host.
-    -   _presenter\_view\_app\_name_: Indicates  **View Name**  displayed on the Presenter Server page, which is user-defined.
+    -   _presenter\_view\_app\_name_: Indicates  **View Name**  displayed on the Presenter Server page, which is user-defined. The value of this parameter must be unique on the Presenter Server page.
     -   _channel1_: absolute path of a video file on the host
     -   _channel2_: URL of an RTSP video stream
 
@@ -273,8 +273,8 @@ Before running the application, obtain the source code package and configure the
     </td>
     <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0167343881_p19431399359"><a name="en-us_topic_0167343881_p19431399359"></a><a name="en-us_topic_0167343881_p19431399359"></a><span>API for interacting with the Presenter Server</span>.</p>
     </td>
-    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167343881_p16684144715560"><a name="en-us_topic_0167343881_p16684144715560"></a><a name="en-us_topic_0167343881_p16684144715560"></a><a href="https://github.com/Ascend/sdk-presenter/tree/master/presenteragent" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-presenter/tree/master/presenteragent</a></p>
-    <p id="en-us_topic_0167343881_p82315442578"><a name="en-us_topic_0167343881_p82315442578"></a><a name="en-us_topic_0167343881_p82315442578"></a>After the download, keep the folder name <span class="filepath" id="en-us_topic_0167343881_filepath19800155745817"><a name="en-us_topic_0167343881_filepath19800155745817"></a><a name="en-us_topic_0167343881_filepath19800155745817"></a><b>presenteragent</b></span>.</p>
+    <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167343881_p16684144715560"><a name="en-us_topic_0167343881_p16684144715560"></a><a name="en-us_topic_0167343881_p16684144715560"></a><a href="https://github.com/Ascend/sdk-presenter/tree/master" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/sdk-presenter/tree/master</a></p>
+    <p id="en-us_topic_0167343881_p82315442578"><a name="en-us_topic_0167343881_p82315442578"></a><a name="en-us_topic_0167343881_p82315442578"></a>Obtain the presenteragent folder in this path, after the download, keep the folder name <span class="filepath" id="en-us_topic_0167343881_filepath19800155745817"><a name="en-us_topic_0167343881_filepath19800155745817"></a><a name="en-us_topic_0167343881_filepath19800155745817"></a><b>presenteragent</b></span>.</p>
     </td>
     </tr>
     <tr id="en-us_topic_0167343881_row119002017360"><td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0167343881_p1390111083619"><a name="en-us_topic_0167343881_p1390111083619"></a><a name="en-us_topic_0167343881_p1390111083619"></a>FFmpeg code</p>
@@ -289,7 +289,7 @@ Before running the application, obtain the source code package and configure the
 </td>
 <td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0167333650_p19431399359"><a name="en-us_topic_0167333650_p19431399359"></a><a name="en-us_topic_0167333650_p19431399359"></a><span>Python libraries that Presenter Server depends on.</span>.</p>
 </td>
-<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167333650_p16684144715560">Search for related sources and install them.</p>
+<td class="cellrowborder" valign="top" width="33.33333333333333%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0167333650_p16684144715560">You can search for related packages on the Python official website https://pypi.org/ for installation. If you run the pip3 install command to download the file online, you can run the following command to specify the version to be downloaded: </p><p><b>pip3 install tornado==5.1.0 -i  <i>Installation source of the specified library</i>  --trusted-host <i>Host name of the installation source</i></b></p>
 </td>
 </tr>
     </tbody>
