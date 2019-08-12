@@ -79,11 +79,12 @@ function deploy_app()
         if [[ ${download_mode} == "local" ]];then
             model_version="local"
         else
-            model_version=`grep VERSION ${DDK_HOME}/ddk_info | awk -F '"' '{print $4}'`
-            if [[ $? -ne 0 ]];then
-                echo "ERROR: can not get version in ${DDK_HOME}/ddk_info, please check your env."
-                return 1
-            fi
+            model_version="internet"
+            #model_version=`grep VERSION ${DDK_HOME}/ddk_info | awk -F '"' '{print $4}'`
+            #if [[ $? -ne 0 ]];then
+                #echo "ERROR: can not get version in ${DDK_HOME}/ddk_info, please check your env."
+                #return 1
+            #fi
         fi
         bash ${script_path}/script/prepare_model.sh ${model_version}
         if [[ $? -ne 0 ]];then
