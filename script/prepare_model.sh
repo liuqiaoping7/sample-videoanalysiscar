@@ -38,19 +38,19 @@ tools_version=$1
 
 app_path="${script_path}/.."
 
-#function download_prepare_model_script()
-#{
-    #echo "download download_model.sh..."
-    #rm -rf ${script_path}/download_model.sh
+function download_prepare_model_script()
+{
+    echo "download download_model.sh..."
+    rm -rf ${script_path}/download_model.sh
     
-    #wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
-    #if [ $? -ne 0 ];then
-        #echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
-        #rm -rf ${script_path}/download_model.sh
-        #return 1
-    #fi
-    #return 0
-#}
+    wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
+    if [ $? -ne 0 ];then
+        echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
+        rm -rf ${script_path}/download_model.sh
+        return 1
+    fi
+    return 0
+}
 
 function prepare()
 {
@@ -74,33 +74,33 @@ function prepare()
             fi
         done
     else
-        for model_info in ${model_names}
-        do
-            model_name=`basename ${model_info}`
-            if [ ! -f "${script_path}/${model_name}.om" ];then
-                echo "ERROR: No ${model_name}.om in current path: ${script_path} for internet mode."
-                return 1
-            else
-                mkdir -p ${app_path}/MyModel/${model_name}/device
-                cp ${script_path}/${model_name}.om ${app_path}/MyModel/${model_name}/device/
-            fi
-        done
-        #download_prepare_model_script
-        #if [ $? -ne 0 ];then
-            #return 1
-        #fi
-        #bash ${script_path}/download_model.sh ${tools_version} ${model_names}
-        
-        #if [ $? -ne 0 ];then
-            #return 1
-        #fi
-
         #for model_info in ${model_names}
         #do
             #model_name=`basename ${model_info}`
-            #mkdir -p ${app_path}/MyModel/${model_name}/device
-            #cp ${script_path}/${model_name}_${tools_version}.om ${app_path}/MyModel/${model_name}/device/${model_name}.om
+            #if [ ! -f "${script_path}/${model_name}.om" ];then
+                #echo "ERROR: No ${model_name}.om in current path: ${script_path} for internet mode."
+                #return 1
+            #else
+                #mkdir -p ${app_path}/MyModel/${model_name}/device
+                #cp ${script_path}/${model_name}.om ${app_path}/MyModel/${model_name}/device/
+            #fi
         #done
+        download_prepare_model_script
+        if [ $? -ne 0 ];then
+            return 1
+        fi
+        bash ${script_path}/download_model.sh ${tools_version} ${model_names}
+        
+        if [ $? -ne 0 ];then
+            return 1
+        fi
+
+        for model_info in ${model_names}
+        do
+            model_name=`basename ${model_info}`
+            mkdir -p ${app_path}/MyModel/${model_name}/device
+            cp ${script_path}/${model_name}_${tools_version}.om ${app_path}/MyModel/${model_name}/device/${model_name}.om
+        done
 
     fi
 
