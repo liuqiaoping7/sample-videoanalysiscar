@@ -38,19 +38,19 @@ tools_version=$1
 
 app_path="${script_path}/.."
 
-function download_prepare_model_script()
-{
-    echo "download download_model.sh..."
-    rm -rf ${script_path}/download_model.sh
+#function download_prepare_model_script()
+#{
+    #echo "download download_model.sh..."
+    #rm -rf ${script_path}/download_model.sh
     
-    wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
-    if [ $? -ne 0 ];then
-        echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
-        rm -rf ${script_path}/download_model.sh
-        return 1
-    fi
-    return 0
-}
+    #wget -O ${script_path}/download_model.sh "https://raw.githubusercontent.com/Ascend/models/master/download_model.sh" --no-check-certificate --quiet
+    #if [ $? -ne 0 ];then
+        #echo "ERROR: download failed, please check https://raw.githubusercontent.com/Ascend/models/master/download_modell.sh connetction."
+        #rm -rf ${script_path}/download_model.sh
+        #return 1
+    #fi
+    #return 0
+#}
 
 function prepare()
 {
@@ -85,10 +85,10 @@ function prepare()
                 #cp ${script_path}/${model_name}.om ${app_path}/MyModel/${model_name}/device/
             #fi
         #done
-        download_prepare_model_script
-        if [ $? -ne 0 ];then
-            return 1
-        fi
+        #download_prepare_model_script
+        #if [ $? -ne 0 ];then
+            #return 1
+        #fi
         bash ${script_path}/download_model.sh ${tools_version} ${model_names}
         
         if [ $? -ne 0 ];then
@@ -110,7 +110,8 @@ function prepare()
 
 main()
 {
-    model_names="computer_vision/object_detect/vgg_ssd computer_vision/classification/car_type computer_vision/classification/car_color computer_vision/object_detect/car_plate_detection computer_vision/classification/car_plate_recognition"
+    #model_names="computer_vision/object_detect/vgg_ssd computer_vision/classification/car_type computer_vision/classification/car_color computer_vision/object_detect/car_plate_detection computer_vision/classification/car_plate_recognition"
+    model_names="vgg_ssd car_type car_color car_plate_detection car_plate_recognition"
     prepare ${model_names}
     if [ $? -ne 0 ];then
         exit 1
