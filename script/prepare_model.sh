@@ -74,33 +74,33 @@ function prepare()
             fi
         done
     else
-        #for model_info in ${model_names}
-        #do
-            #model_name=`basename ${model_info}`
-            #if [ ! -f "${script_path}/${model_name}.om" ];then
-                #echo "ERROR: No ${model_name}.om in current path: ${script_path} for internet mode."
-                #return 1
-            #else
-                #mkdir -p ${app_path}/MyModel/${model_name}/device
-                #cp ${script_path}/${model_name}.om ${app_path}/MyModel/${model_name}/device/
-            #fi
-        #done
+        for model_info in ${model_names}
+        do
+            model_name=`basename ${model_info}`
+            if [ ! -f "${script_path}/${model_name}.om" ];then
+                echo "ERROR: No ${model_name}.om in current path: ${script_path} for internet mode."
+                return 1
+            else
+                mkdir -p ${app_path}/MyModel/${model_name}/device
+                cp ${script_path}/${model_name}.om ${app_path}/MyModel/${model_name}/device/
+            fi
+        done
         #download_prepare_model_script
         #if [ $? -ne 0 ];then
             #return 1
         #fi
-        bash ${script_path}/download_model.sh ${tools_version} ${model_names}
+        #bash ${script_path}/download_model.sh ${tools_version} ${model_names}
         
-        if [ $? -ne 0 ];then
-            return 1
-        fi
+        #if [ $? -ne 0 ];then
+            #return 1
+        #fi
 
-        for model_info in ${model_names}
-        do
-            model_name=`basename ${model_info}`
-            mkdir -p ${app_path}/MyModel/${model_name}/device
-            cp ${script_path}/${model_name}_${tools_version}.om ${app_path}/MyModel/${model_name}/device/${model_name}.om
-        done
+        #for model_info in ${model_names}
+        #do
+            #model_name=`basename ${model_info}`
+            #mkdir -p ${app_path}/MyModel/${model_name}/device
+            #cp ${script_path}/${model_name}_${tools_version}.om ${app_path}/MyModel/${model_name}/device/${model_name}.om
+        #done
 
     fi
 
@@ -110,8 +110,8 @@ function prepare()
 
 main()
 {
-    #model_names="computer_vision/object_detect/vgg_ssd computer_vision/classification/car_type computer_vision/classification/car_color computer_vision/object_detect/car_plate_detection computer_vision/classification/car_plate_recognition"
-    model_names="vgg_ssd car_type car_color car_plate_detection car_plate_recognition"
+    model_names="computer_vision/object_detect/vgg_ssd computer_vision/classification/car_type computer_vision/classification/car_color computer_vision/object_detect/car_plate_detection computer_vision/classification/car_plate_recognition"
+    #model_names="vgg_ssd car_type car_color car_plate_detection car_plate_recognition"
     prepare ${model_names}
     if [ $? -ne 0 ];then
         exit 1
