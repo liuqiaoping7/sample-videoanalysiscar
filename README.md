@@ -1,3 +1,5 @@
+EN|[CN](README_cn.md)
+
 # Vehicle Detection<a name="EN-US_TOPIC_0167573211"></a>
 
 Developers can deploy the application on the Atlas 200 DK or the AI acceleration cloud server to decode the local MP4 file or RTSP video streams, detect vehicles in video frames, predict their attributes, generate structured information, and send the structured information to the server for storage and display.
