@@ -199,12 +199,19 @@
 
     -   _host\_ip_：对于Atlas 200 DK开发者板，即为开发者板的IP地址。对于AI加速云服务器，即为Host侧的IP地址。
     -   _presenter\_view\_app\_name_：用户自定义的在Presenter Server界面展示的View Name，此View Name需要在Presenter Server展示界面唯一。
-    -   _channel1_：为Host侧的视频文件的绝对路径。
-    -   _channel2_：为RTSP视频流的URL。
+    -   _channel1_：为Host侧的视频文件的绝对路径，需要加上双引号.当只存在视频文件时。Channel2可以省略。
+    -   _channel2_：为RTSP视频流的URL,需要加上双引号。当只存在RTSP视频流时需要使用” ”对channel1进行占位。
 
-    命令示例如下所示：
-
-    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video /home/HwHiAiUser/sample/car.mp4 &**
+    视频文件运行的命令示例如下所示：
+    
+    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video "/home/HwHiAiUser/sample/car.mp4" &**
+    
+    RTSP视频流的命令实例如下所示：
+    
+    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video " "  "rtsp://192.168.2.37:554/cam/realmonitor?channel=1&subtype=0" &**
+    
+    >![](doc/source/img/icon-note.gif) **说明：**   
+    >当前RTSP视频流只支持rtsp://ip:port/path格式，如果需要使用其它格式的url，需要把video\_decode.cpp中的IsValidRtsp函数去除，或者直接返回true，跳过正则表达式匹配。
 
 2.  使用启动Presenter Server服务时提示的URL登录 Presenter Server 网站（仅支持Chrome浏览器），详细可参考[3](#zh-cn_topic_0182554635_li499911453439)。
 
