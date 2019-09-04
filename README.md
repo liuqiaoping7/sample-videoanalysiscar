@@ -200,12 +200,19 @@ Before running the application, obtain the source code package and configure the
 
     -   _host\_ip_: For the Atlas 200 DK developer board, this parameter indicates the IP address of the developer board. For the AI acceleration cloud server, this parameter indicates the IP address of the host.
     -   _presenter\_view\_app\_name_: Indicates  **View Name**  displayed on the Presenter Server page, which is user-defined. The value of this parameter must be unique on the Presenter Server page.
-    -   _channel1_: absolute path of a video file on the host
-    -   _channel2_: URL of an RTSP video stream
+    -   _channel1_: absolute path of a video file on the host, need to add double quotes when there is only a video file. Channel2 can be omitted
+    -   _channel2_: URL of an RTSP video stream. need to add double quotes, when there is only RTSP video stream, you need to use " " to occupy channel1
 
-    Example command:
+    Example command of video file:
 
-    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video /home/HwHiAiUser/sample/car.mp4 &**
+    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video "/home/HwHiAiUser/sample/car.mp4" &**
+
+    Example command of RTSP video stream:
+
+    **bash run\_videoanalysiscarapp.sh 192.168.1.2 video " " "rtsp://192.168.2.37:554/cam/realmonitor?channel=1&subtype=0" &**
+
+    >![](public_sys-resources/icon-note.gif) **NOTE:**  
+    >The current RTSP video stream only supports the rtsp://ip:port/path format. If you need to use other format urls, you need to remove the IsValidRtsp function in video_decode.cpp, or return true directly, skipping the regular expression matching.
 
 2.  Use the URL that is displayed when you start the Presenter Server service to log in to the Presenter Server website (only the Chrome browser is supported). For details, see  [3](#en-us_topic_0182554635_li499911453439).
 
