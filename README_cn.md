@@ -54,7 +54,7 @@
     <td class="cellrowborder" valign="top" width="9.68096809680968%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0182554635_p108593100461"><a name="zh-cn_topic_0182554635_p108593100461"></a><a name="zh-cn_topic_0182554635_p108593100461"></a>车牌检测网络模型。</p>
     <p id="zh-cn_topic_0182554635_p1785921024614"><a name="zh-cn_topic_0182554635_p1785921024614"></a><a name="zh-cn_topic_0182554635_p1785921024614"></a>基于Caffe的Mobilenet-SSD模型。</p>
     </td>
-    <td class="cellrowborder" valign="top" width="72.997299729973%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0182554635_p158596106460"><a name="zh-cn_topic_0182554635_p158596106460"></a><a name="zh-cn_topic_0182554635_p158596106460"></a>请参考<a href="https://github.com/Ascend/models/tree/master/computer_vision/classification/car_plate_detection" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/tree/master/computer_vision/object_detect/car_plate_detection</a>目录中README.md下载原始网络模型文件及其对应的权重文件。</p>
+    <td class="cellrowborder" valign="top" width="72.997299729973%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0182554635_p158596106460"><a name="zh-cn_topic_0182554635_p158596106460"></a><a name="zh-cn_topic_0182554635_p158596106460"></a>请参考<a href="https://github.com/Ascend/models/tree/master/computer_vision/object_detect/car_plate_detection" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/tree/master/computer_vision/object_detect/car_plate_detection</a>目录中README.md下载原始网络模型文件及其对应的权重文件。</p>
     </td>
     </tr>
     <tr id="zh-cn_topic_0182554635_row08596101464"><td class="cellrowborder" valign="top" width="17.32173217321732%" headers="mcps1.2.4.1.1 "><p id="zh-cn_topic_0182554635_p178591510164619"><a name="zh-cn_topic_0182554635_p178591510164619"></a><a name="zh-cn_topic_0182554635_p178591510164619"></a>car_plate_recognition</p>
@@ -70,7 +70,7 @@
     <td class="cellrowborder" valign="top" width="9.68096809680968%" headers="mcps1.2.4.1.2 "><p id="zh-cn_topic_0182554635_p1786011016461"><a name="zh-cn_topic_0182554635_p1786011016461"></a><a name="zh-cn_topic_0182554635_p1786011016461"></a>目标检测网络模型。</p>
     <p id="zh-cn_topic_0182554635_p086018109465"><a name="zh-cn_topic_0182554635_p086018109465"></a><a name="zh-cn_topic_0182554635_p086018109465"></a>基于Caffe的SSD512模型。</p>
     </td>
-    <td class="cellrowborder" valign="top" width="72.997299729973%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0182554635_p1186071044613"><a name="zh-cn_topic_0182554635_p1186071044613"></a><a name="zh-cn_topic_0182554635_p1186071044613"></a>请参考<a href="https://github.com/Ascend/models/tree/master/computer_visionobject_detect/vgg_ssd" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/tree/master/computer_visionobject_detect/vgg_ssd</a>目录中README.md下载原始网络模型文件及其对应的权重文件。</p>
+    <td class="cellrowborder" valign="top" width="72.997299729973%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0182554635_p1186071044613"><a name="zh-cn_topic_0182554635_p1186071044613"></a><a name="zh-cn_topic_0182554635_p1186071044613"></a>请参考<a href="https://github.com/Ascend/models/tree/master/computer_vision/object_detect/vgg_ssd" target="_blank" rel="noopener noreferrer">https://github.com/Ascend/models/tree/master/computer_vision/object_detect/vgg_ssd</a>目录中README.md下载原始网络模型文件及其对应的权重文件。</p>
     </td>
     </tr>
     </tbody>
