@@ -198,7 +198,7 @@
     **bash run\_videoanalysiscarapp.sh** _host\_ip_ _presenter\_view\_appname_ _channel1_ _[channel2]_   &
 
     -   _host\_ip_：对于Atlas 200 DK开发者板，即为开发者板的IP地址。对于AI加速云服务器，即为Host侧的IP地址。
-    -   _presenter\_view\_app\_name_：用户自定义的在Presenter Server界面展示的View Name，此View Name需要在Presenter Server展示界面唯一。
+    -   _presenter\_view\_app\_name_：用户自定义的在Presenter Server界面展示的View Name，此View Name需要在Presenter Server展示界面唯一，只能是大小写字母和数字组合，位数3-20。
     -   _channel1_：为Host侧的视频文件的绝对路径，需要加上双引号.当只存在视频文件时。Channel2可以省略。
     -   _channel2_：为RTSP视频流的URL,需要加上双引号。当只存在RTSP视频流时需要使用” ”对channel1进行占位。
 
